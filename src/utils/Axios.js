@@ -6,3 +6,5 @@ const axiosInstance = axios.create({
 });
 
 export default axiosInstance;
+
+// The free tier of Vercel does not support environment variables (.env), which may cause issues with configuration and deployment.
