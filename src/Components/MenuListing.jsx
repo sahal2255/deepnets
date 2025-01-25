@@ -10,7 +10,6 @@ const MenuListing = () => {
   const [openModal, setOpenModal] = useState(false);
   const [menus, setMenus] = useState([]);
 
-  // Fetch menu list from API
   const menuList = async () => {
     try {
       const response = await menuListGet();
@@ -27,7 +26,6 @@ const MenuListing = () => {
     }
   };
 
-  // Fetch details of the selected menu
   const selectMenu = async (itemId) => {
     console.log("Selected menu ID:", itemId);
     try {
