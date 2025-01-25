@@ -24,7 +24,7 @@ const SelectedMenuItems = ({ selectedMenu }) => {
 
       <div className="relative z-10 flex justify-center items-center min-h-[70vh]">
         <div className="border-4 border-white  p-8 rounded-lg bg-black bg-opacity-80 shadow-lg max-w-4xl">
-          <h1 className="text-4xl font-bold text-center mb-8">{selectedMenu.name}</h1>
+          {/* <h1 className="text-4xl font-bold text-center mb-8">{selectedMenu.name}</h1> */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
             {Array.isArray(menuItems) &&
               menuItems.map((item, index) => (

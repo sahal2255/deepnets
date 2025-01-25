@@ -10,17 +10,37 @@ const MenuListing = () => {
   const [openModal, setOpenModal] = useState(false);
   const [menus, setMenus] = useState([]);
 
+  // Fetch menu list from API
   const menuList = async () => {
     try {
       const response = await menuListGet();
-      setMenus(response.menuLists);
-
-      if (response.menuLists.length > 0) {
+      console.log("Menu list response:", response);
+      if (response && response.menuLists && response.menuLists.length > 0) {
+        setMenus(response.menuLists);
         const defaultMenu = response.menuLists[0];
         selectMenu(defaultMenu._id);
+      } else {
+        console.log("No menus found or invalid response:", response);
       }
     } catch (error) {
       console.log("Error in fetching menu list:", error);
+    }
+  };
+
+  // Fetch details of the selected menu
+  const selectMenu = async (itemId) => {
+    console.log("Selected menu ID:", itemId);
+    try {
+      const response = await selectedMenuItems(itemId);
+      console.log("Selected menu response:", response);
+      if (response) {
+        setSelectedMenu(response);
+      } else {
+        console.log("No data found for the selected menu item.");
+        setSelectedMenu(null);
+      }
+    } catch (error) {
+      console.log("Error selecting menu item:", error);
     }
   };
 
@@ -36,23 +56,12 @@ const MenuListing = () => {
     setOpenModal(false);
   };
 
-  const selectMenu = async (itemId) => {
-    console.log("Selected menu ID:", itemId);
-    try {
-      const response = await selectedMenuItems(itemId);
-      console.log("Response in selectMenu:", response);
-      setSelectedMenu(response); 
-    } catch (error) {
-      console.log("Error selecting menu item:", error);
-    }
-  };
-
   return (
     <>
       <div
         className="relative bg-cover bg-center min-h-20"
         style={{
-          backgroundImage: `url(${MenuBackgroundImg})`,
+          backgroundImage:` url(${MenuBackgroundImg})`,
           backgroundSize: "cover",
         }}
       >
@@ -64,7 +73,7 @@ const MenuListing = () => {
                 key={menu._id}
                 className={`px-3 py-2 rounded-md text-sm md:text-base font-semibold transition-all ${
                   selectedMenu && selectedMenu._id === menu._id
-                    ? "bg-white text-black shadow-lg "
+                    ? "bg-white text-black shadow-lg"
                     : "bg-black hover:bg-gray-800 text-gray-300"
                 }`}
                 onClick={() => selectMenu(menu._id)}
@@ -85,7 +94,13 @@ const MenuListing = () => {
         </Modal>
       </div>
       <div>
-        <SelectedMenuItems selectedMenu={selectedMenu} />
+        {selectedMenu ? (
+          <SelectedMenuItems selectedMenu={selectedMenu} />
+        ) : (
+          <p className="text-center text-gray-500 py-4">
+            No menu selected. Please select a menu.
+          </p>
+        )}
       </div>
     </>
   );
