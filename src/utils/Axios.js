@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const axiosInstance = axios.create({
-  baseURL: import.meta.env.VITE_BASE_URL||'http://localhost:3005', 
+  baseURL:'https://product-alpha-gray.vercel.app'||'http://localhost:3005', 
   withCredentials: true,
 });
 
