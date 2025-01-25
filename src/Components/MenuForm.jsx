@@ -47,7 +47,6 @@ const MenuForm = ({menuList,closeModal}) => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 max-w-md mx-auto p-4 bg-white shadow-md rounded-md">
-      {/* Menu Name */}
       <div>
         <label className="block text-sm font-semibold text-gray-700">Menu Name</label>
         <input
@@ -59,7 +58,6 @@ const MenuForm = ({menuList,closeModal}) => {
         {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name.message}</p>}
       </div>
 
-      {/* Menu Description */}
       <div>
         <label className="block text-sm font-semibold text-gray-700">Menu Description</label>
         <textarea
@@ -70,11 +68,10 @@ const MenuForm = ({menuList,closeModal}) => {
         {errors.description && <p className="text-red-500 text-sm mt-1">{errors.description.message}</p>}
       </div>
 
-      {/* Add Items Button */}
       {!showItemFields && (
         <button
           type="button"
-          className="px-4 py-2 bg-blue-600 text-white rounded-md shadow hover:bg-blue-700"
+          className="px-4 py-2 bg-gray-600 text-white rounded-md shadow hover:bg-black"
           onClick={() => setShowItemFields(true)}
         >
           Add Items
@@ -87,9 +84,9 @@ const MenuForm = ({menuList,closeModal}) => {
 
       <button
         type="submit"
-        className="w-full px-4 py-2 bg-indigo-600 text-white rounded-md shadow hover:bg-indigo-700"
+        className="w-full px-4 py-2 bg-green-600 text-white rounded-md shadow hover:bg-green-700"
       >
-        Submit
+        Save
       </button>
     </form>
   );

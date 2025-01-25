@@ -1,4 +1,5 @@
-import React from 'react';
+import React from "react";
+import { IoClose } from "react-icons/io5";
 
 const Modal = ({ isOpen, onClose, children }) => {
   if (!isOpen) return null;
@@ -9,16 +10,19 @@ const Modal = ({ isOpen, onClose, children }) => {
       onClick={onClose}
     >
       <div
-        className="bg-white rounded-lg overflow-hidden shadow-xl transform transition-all max-w-lg w-full p-6"
-        onClick={(e) => e.stopPropagation()} 
+        className="relative bg-white rounded-lg overflow-hidden shadow-xl transform transition-all max-w-lg w-full p-6"
+        onClick={(e) => e.stopPropagation()} // Prevent closing modal when clicking inside
       >
-        {children}
         <button
-          className="mt-4 bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded"
+          className="absolute top-4 right-4 text-gray-500 hover:text-gray-800 transition-all"
           onClick={onClose}
         >
-          Close
+          <IoClose size={24} />
         </button>
+
+        {children}
+
+       
       </div>
     </div>
   );

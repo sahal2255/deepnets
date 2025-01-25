@@ -1,7 +1,7 @@
 import React from 'react';
 import { GiRotaryPhone } from "react-icons/gi";
 import { CiMail } from "react-icons/ci";
-import { MdLocationOn } from "react-icons/md"; // Import the location icon
+import { MdLocationOn } from "react-icons/md"; 
 
 import FooterLogo from '../assets/MainLogo.png'
 const Footer = () => {
@@ -25,7 +25,6 @@ const Footer = () => {
           <img src={FooterLogo} alt="" className='h-16' />
         </div>
 
-        {/* Box 3 */}
         <div className="bg-gray-800 p-6 rounded-lg border-2 border-white shadow-lg">
           <h3 className="text-xl font-semibold mb-4 text-center">Find Us</h3>
           <div className="flex items-center justify-center space-x-4">

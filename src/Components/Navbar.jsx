@@ -17,13 +17,13 @@ const Navbar = () => {
           <Link to="/" className="hover:text-blue-500 transition">
             Home
           </Link>
-          <Link to="/menu" className="hover:text-blue-500 transition">
+          <Link to="/" className="hover:text-blue-500 transition">
             Menu
           </Link>
-          <Link to="/reservation" className="hover:text-blue-500 transition">
+          <Link to="/" className="hover:text-blue-500 transition">
             Make a Reservation
           </Link>
-          <Link to="/contact" className="hover:text-blue-500 transition">
+          <Link to="/" className="hover:text-blue-500 transition">
             Contact Us
           </Link>
         </div>
@@ -57,7 +57,7 @@ const Navbar = () => {
             </li>
             <li>
               <Link
-                to="/menu"
+                to="/"
                 className="hover:text-blue-500 transition"
                 onClick={() => setViewToggle(false)}
               >
@@ -66,7 +66,7 @@ const Navbar = () => {
             </li>
             <li>
               <Link
-                to="/reservation"
+                to="/"
                 className="hover:text-blue-500 transition"
                 onClick={() => setViewToggle(false)}
               >
@@ -75,7 +75,7 @@ const Navbar = () => {
             </li>
             <li>
               <Link
-                to="/contact"
+                to="/"
                 className="hover:text-blue-500 transition"
                 onClick={() => setViewToggle(false)}
               >

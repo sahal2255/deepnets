@@ -27,7 +27,7 @@ export const selectedMenuItems=async(itemId)=>{
     console.log('item id in the service section',itemId)
     try {
         const response =await axiosInstance.get(`/selectedmenuitems/${itemId}`)
-        return response
+        return response.data
     } catch (error) {
         console.log('selected items error in the service section',error)
     }
